@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
 
-class AgendaConfig(AppConfig):
+class agendaConfig(AppConfig):
     name = 'agenda'
+    verbose_name= 'Controle de Tarefas'

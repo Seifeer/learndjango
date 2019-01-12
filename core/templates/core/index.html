@@ -1,0 +1,9 @@
+{% if latest_Question_list %}
+    <ul>
+    {% for Question in latest_Question_list %}
+        <li><a href="/polls/{{ question.id }}/">{{ Question.questao_texto }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No cores are available.</p>
+{% endif %}
