@@ -6,11 +6,9 @@ from .models import Question
 # Crie suas views aqui.
 def index(request):
     latest_Question_list = Question.objects.order_by('-data_public')[:5]
-    template= loader.get_template('core/index.html')
-    context={
-        'latest_Question_list': latest_Question_list,
-    }
-    return HttpResponse(template.render(context,request))
+    #template= loader.get_template('core/index.html')
+    context={'latest_Question_list': latest_Question_list,}
+    return render(request, 'core/index.html',context)
 
 def detail(request,Question_id):
     return HttpResponse("You're looking at questions %s."%Question_id)
