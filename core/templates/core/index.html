@@ -1,6 +1,6 @@
-{% if latest_Question_list %}
+{% if ultima_questao %}
     <ul>
-    {% for Question in latest_Question_list %}
+    {% for Question in ultima_questao %}
         <li><a href="/core/{{ question.id }}/">{{ Question.questao_texto }}</a></li>
     {% endfor %}
     </ul>

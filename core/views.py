@@ -1,17 +1,23 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, Http404
+#from django.template import loader
 from .models import Question
 
 # Crie suas views aqui.
 def index(request):
-    latest_Question_list = Question.objects.order_by('-data_public')[:5]
+    ultima_questao = Question.objects.order_by('data_public')[:5]
     #template= loader.get_template('core/index.html')
-    context={'latest_Question_list': latest_Question_list,}
+    context={'ultima_questao': ultima_questao,}
     return render(request, 'core/index.html',context)
 
 def detail(request,Question_id):
-    return HttpResponse("You're looking at questions %s."%Question_id)
+    questao=get_object_or_404(Question, teste=Question_id)
+    return render(request, 'core/detail.html', {'Questao':questao})
+    #try:
+    #   questao = Question.objects.get(teste=Question_id)
+    #except Question.DoesNotExist:
+    #   raise Http404("Essa questão não existe")
+    #return render(request, 'core/detail.html',{'Questao': questao})
 
 def results(request,Question_id):
     response="You're looking at results of questions %s."
