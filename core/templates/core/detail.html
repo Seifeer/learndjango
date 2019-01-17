@@ -1,1 +1,5 @@
-{{ question }}
+<h1>{{ Question.questao_texto }}</h1>
+<ul>
+    {% for Choice in Question.Choice_set.all %}
+    <li>{{ Choice.choice_texto }}</li>
+</ul>
