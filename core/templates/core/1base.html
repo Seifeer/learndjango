@@ -1,0 +1,9 @@
+{% if ultima_questao %}
+    <ul>
+    {% for Question in ultima_questao %}
+        <li><a href="/core/{{ question.id }}/">{{ Question.questao_texto }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No cores are available.</p>
+{% endif %}
