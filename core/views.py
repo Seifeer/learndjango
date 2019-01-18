@@ -6,9 +6,9 @@ from .models import Question
 # Crie suas views aqui.
 def index(request):
     ultima_questao = Question.objects.order_by('data_public')[:5]
-    #template= loader.get_template('core/index.html')
+    #template= loader.get_template('core/base.html')
     context={'ultima_questao': ultima_questao,}
-    return render(request, 'core/index.html',context)
+    return render(request, 'core/base.html',context)
 
 def detail(request,Question_id):
     questao=get_object_or_404(Question, teste=Question_id)
